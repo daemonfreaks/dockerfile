@@ -2,6 +2,8 @@ FROM ubuntu:latest
 
 LABEL maintainer="daemonfreaks"
 
+# Enable universe repository
+RUN apt update -y && apt install -y software-properties-common && add-apt-repository universe && rm -rf /var/lib/apt/lists/*
 
 # Install and locales.
 RUN apt update -y && apt install -y locales && rm -rf /var/lib/apt/lists/* && locale-gen ja_JP.UTF-8
